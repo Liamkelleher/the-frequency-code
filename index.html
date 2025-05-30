@@ -20,8 +20,8 @@
     </div>
     <nav class="nav-menu">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#features">What's Inside</a></li>
+        <!-- <li><a href="#">About</a></li> -->
+        <li><a href="#about">What's Inside</a></li>
         <li><a href="#bonuses">Bonuses</a></li>
         <li><a href="#author">Author</a></li>
         <li><a href="#testimonials">Reviews</a></li>
@@ -40,14 +40,6 @@
       </p>
       <a class="btn-primary glow-btn" href="#buy">Buy Now</a>
     </div>
-    <section id="video" class="section dark">
-<!--       <div class="video-wrapper full-embed">
-        <video id="promo-video" autoplay muted loop playsinline preload="auto" src="https://imagekit.io/player/embed/nhp5aep1f/ScreenRecording_04-02-2025%2014-52-15_1.mov/ik-video.mp4?updatedAt=1748266878322&thumbnail=https%3A%2F%2Fik.imagekit.io%2Fnhp5aep1f%2FScreenRecording_04-02-2025%252014-52-15_1.mov%2Fik-video.mp4%2Fik-thumbnail.jpg%3FupdatedAt%3D1748266878322&updatedAt=1748266878322">
-        </video>
-      </div> -->
-<!--       <button id="unmute-btn" class="unmute-btn">🔊 Unmute</button> -->
-      <button id="unmute-btn" class="unmute-btn"></button>
-    </section>
   </section>
 
   <section id="about" class="section dark">
@@ -191,37 +183,44 @@
   </section>
 
 
-
-
   <footer>
-    <p>&copy; 2025 The Frequency Code</p>
+    <p>&copy; 2025 LK Socials - All Rights Resevred</p>
+    <ul class="footer-links">
+      <li><button class="footer-toggle" data-target="footer-about">About</button></li>
+      <li><button class="footer-toggle" data-target="footer-contact">Contact</button></li>
+      <li><button class="footer-toggle" data-target="footer-terms">Terms & Privacy</button></li>
+      <li><button class="footer-toggle" data-target="footer-refund">Refund Policy</button></li>
+    </ul>
   </footer>
 
-  <!-- Modals -->
-  <div class="modal" id="modal-enoch">
-    <div class="modal-content"><span class="close">&times;</span>
-      <h3>Bonus #1: The Book of Enoch</h3>
-      <p>This book was removed from the Bible for being too revealing. It contains ancient knowledge of divine origin.</p>
-    </div>
+    <!-- Footer Modals -->
+  <div class="footer-section" id="footer-about">
+    <h3>About LK Socials</h3>
+    <p><strong>LK Socials</strong> is a modern digital agency that builds and scales online brands. We specialize in:</p>
+    <ul>
+      <li>Strategic advertising and high-converting marketing campaigns</li>
+      <li>Custom website design and development</li>
+      <li>SaaS product development & automation tools</li>
+      <li>Unique digital products — eBooks, courses, content bundles</li>
+    </ul>
+    <p>Our mission is to empower creators and companies with tools that spark growth, engagement, and monetization — all built for the digital age.</p>
   </div>
-  <div class="modal" id="modal-cia">
-    <div class="modal-content"><span class="close">&times;</span>
-      <h3>Bonus #2: Secret CIA Files</h3>
-      <p>Declassified documents on mind control, remote viewing, and consciousness experiments.</p>
-    </div>
+
+  <div class="footer-section" id="footer-contact">
+    <h3>Contact</h3>
+    <p>For questions, support, or collaborations, email us at: <strong>lksocialgroup@gmail.com</strong></p>
   </div>
-  <div class="modal" id="modal-ufo">
-    <div class="modal-content"><span class="close">&times;</span>
-      <h3>Bonus #3: UFO Cases</h3>
-      <p>21 shocking UFO encounters with photos, reports, and government denials.</p>
-    </div>
+
+  <div class="footer-section" id="footer-terms">
+    <h3>Terms & Privacy Policy</h3>
+    <p>By purchasing, you agree to our terms. We do not share your personal data. We use secure services like Stripe and Gumroad to process your data safely.</p>
   </div>
-  <div class="modal" id="modal-history">
-    <div class="modal-content"><span class="close">&times;</span>
-      <h3>Bonus #4: Hidden History</h3>
-      <p>A timeline of lost civilizations, censored discoveries, and redacted truths.</p>
-    </div>
+
+  <div class="footer-section" id="footer-refund">
+    <h3>Refund Policy</h3>
+    <p>Due to the digital nature of our products, all sales are final. If you experience any issues with access or file quality, please contact us — we’ll help you out.</p>
   </div>
+
 
   <!-- External Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
