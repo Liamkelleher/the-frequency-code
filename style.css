@@ -702,6 +702,48 @@ footer {
   color: var(--text-main);
 }
 
+.footer-section {
+  display: none;
+  justify-content: center;
+  background: #1e1b29;
+  color: #fff;
+  padding: 1rem;
+  border-top: 1px solid #444;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 20px 0 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 0;
+}
+
+.footer-section.active {
+  display: block;
+}
+
+.footer-toggle {
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* ========== PARALLAX ========== */
 .parallax {
