@@ -60,15 +60,15 @@ toggle.addEventListener("click", () => {
 });
 
 // Unmute video logic
-const unmuteBtn = document.getElementById("unmute-btn");
-const promoVideo = document.getElementById("promo-video");
+// const unmuteBtn = document.getElementById("unmute-btn");
+// const promoVideo = document.getElementById("promo-video");
 
-unmuteBtn.addEventListener("click", () => {
-  promoVideo.muted = false;
-  promoVideo.volume = 1;
-  promoVideo.play();
-  unmuteBtn.style.display = "none";
-});
+// unmuteBtn.addEventListener("click", () => {
+//   promoVideo.muted = false;
+//   promoVideo.volume = 1;
+//   promoVideo.play();
+//   unmuteBtn.style.display = "none";
+// });
 
 // Scroll-triggered flip effect for cards
 const cards = document.querySelectorAll(".card");
@@ -90,48 +90,30 @@ cards.forEach((card) => {
   flipObserver.observe(card);
 });
 
-const floatingBtn = document.querySelector(".floating-buy");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    floatingBtn.style.opacity = "1";
-    floatingBtn.style.pointerEvents = "auto";
-  } else {
-    floatingBtn.style.opacity = "0";
-    floatingBtn.style.pointerEvents = "none";
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
-    const buySection = document.querySelector("#buy");
-    const floatingBtn = document.querySelector(".floating-buy");
-    floatingBtn.style.opacity = "0";
+  const buySection = document.querySelector("#buy");
+  const floatingBtn = document.querySelector(".floating-buy");
 
-  window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    floatingBtn.style.opacity = "1";
-    floatingBtn.style.pointerEvents = "auto";
-  
-    function checkIfInBuySection() {
-      const rect = buySection.getBoundingClientRect();
-      const fullyVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+  function checkFloatingButtonVisibility() {
+    const rect = buySection.getBoundingClientRect();
+    const isInBuySection = rect.top < window.innerHeight && rect.bottom > 0;
 
-      if (fullyVisible) {
-        floatingBtn.style.opacity = "0";
-        floatingBtn.style.pointerEvents = "none";
-      } else {
-        floatingBtn.style.opacity = "1";
-        floatingBtn.style.pointerEvents = "auto";
-      }
+    if (window.scrollY > 400 && window.scrollY < 3500) {
+      floatingBtn.style.opacity = "1";
+      floatingBtn.style.pointerEvents = "auto";
+    } else {
+      floatingBtn.style.opacity = "0";
+      floatingBtn.style.pointerEvents = "none";
     }
-    window.addEventListener("scroll", checkIfInBuySection);
-    window.addEventListener("resize", checkIfInBuySection);
-  } else {
-    floatingBtn.style.opacity = "0";
-    floatingBtn.style.pointerEvents = "none";
   }
-  });
-}); 
+
+  // Initial check
+  checkFloatingButtonVisibility();
+
+  // Event listeners
+  window.addEventListener("scroll", checkFloatingButtonVisibility);
+  window.addEventListener("resize", checkFloatingButtonVisibility);
+});
 
 document.querySelectorAll('.faq-question').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -149,3 +131,26 @@ document.querySelectorAll('.faq-question').forEach((btn) => {
     });
   });
 
+document.querySelectorAll(".footer-toggle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.dataset.target;
+    const targetSection = document.getElementById(targetId);
+
+    // Hide all others
+    document.querySelectorAll(".footer-section").forEach(sec => {
+      if (sec !== targetSection) sec.classList.remove("active");
+    });
+
+    // Toggle visibility
+    const isVisible = targetSection.classList.contains("active");
+    targetSection.classList.toggle("active");
+
+    // Scroll into view AFTER it's visible
+    if (!isVisible) {
+      // Delay scrolling slightly to allow layout to update
+      setTimeout(() => {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    }
+  });
+});
